@@ -2,13 +2,15 @@
 
 namespace App\Filament\Resources\Posts\Schemas;
 
+namespace App\Filament\Resources\Posts\Schemas;
+
 use App\Models\Category;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Field;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
@@ -16,8 +18,7 @@ use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
-
-use function Laravel\Prompts\select;
+use Illuminate\Validation\Rules\Unique;
 
 class PostForm
 {
@@ -37,7 +38,7 @@ class PostForm
                             ->options(Category::all()->pluck('name', 'id')),
                         ColorPicker::make('color'),
                         MarkdownEditor::make('body'),
-                    ])->columnSpan(1),
+                    ])->columnSpan(2),
                 Group::make()
                     ->schema([
                         Section::make('Image Upload')
@@ -57,6 +58,7 @@ class PostForm
                     ])->columnSpan(1)
 
 
-            ])->columns(1);
+            ])->columns(3);
+            
     }
 }

@@ -11,8 +11,12 @@ class CategoryForm
     {
         return $schema
             ->components([
-                TextInput::make('name'),
-                TextInput::make('slug'),
+                TextInput::make('name')->rules(['required','max:15','min:5'])->unique()->validationMessages([
+                    'unique' => 'this name is already taken'
+                ]),
+                TextInput::make('slug')->rules(['required','max:15','min:5'])->unique()->validationMessages([
+                    'unique' => 'this slug is already taken'
+                ]),
             ]);
     }
 }
