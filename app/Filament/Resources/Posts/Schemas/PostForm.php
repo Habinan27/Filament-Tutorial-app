@@ -56,9 +56,6 @@ class PostForm
                                 DatePicker::make('published_at'),
                             ]),
                     ])->columnSpan(1)
-
-
-            ])->columns(3);
-            
+            ])->columns(3); 
     }
 }
