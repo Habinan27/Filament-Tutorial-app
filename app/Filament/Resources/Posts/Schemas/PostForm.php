@@ -45,7 +45,7 @@ class PostForm
                             ->description('Upload an image for the post')
                             ->icon(Heroicon::RocketLaunch)
                             ->schema([
-                                FileUpload::make('image')->disk('public')->directory('posts'),
+                                FileUpload::make('image')->image()->disk('public')->directory('posts'),
                             ]),
                         Section::make('Meta')
                             ->description('Manage the post meta information')

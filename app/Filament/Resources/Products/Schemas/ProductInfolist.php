@@ -50,6 +50,8 @@ class ProductInfolist
                             ]),
                         Tab::make('Pricing & Stocks')
                             ->icon(Heroicon::CurrencyDollar)
+                            ->badge(10)
+                            ->badgeColor('info')
                             ->schema([
                                 TextEntry::make('price')
                                     ->icon(Heroicon::CurrencyDollar)
@@ -74,7 +76,7 @@ class ProductInfolist
                                     ->label('Is Featured?')
                                     ->boolean(),
                             ])
-                    ])->columnSpanFull()->vertical(),
+                    ])->columnSpanFull(),
             ]);
     }
 }

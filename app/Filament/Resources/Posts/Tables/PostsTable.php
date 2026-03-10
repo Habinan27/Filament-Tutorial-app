@@ -24,14 +24,15 @@ class PostsTable
     {
         return $table
             ->columns([
-                ImageColumn::make('image')->disk('public')->sortable(),
+                ImageColumn::make('image')->disk('public')->width(60),
                 TextColumn::make('title')->sortable(),
                 TextColumn::make('slug')->sortable(),
                 TextColumn::make('category.name')->sortable(),
                 ColorColumn::make('color')->sortable(),
-            ])
+            ])->defaultSort('title','asc')
             ->filters([
                 TrashedFilter::make(),
+
             ])
             ->recordActions([
                 EditAction::make(),

@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\Products\Tables;
 
+use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -20,9 +22,10 @@ class ProductsTable
         return $table
             ->columns([
                 ImageColumn::make('image')->disk('public'),
-                TextColumn::make('name'),
-                TextColumn::make('sku'),
-                TextColumn::make('price'),
+                TextColumn::make('name')->sortable(),
+                TextColumn::make('sku')->sortable(),
+                TextColumn::make('price')->sortable(),
+                
             ])
             ->filters([
                 TrashedFilter::make(),
@@ -30,6 +33,7 @@ class ProductsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
