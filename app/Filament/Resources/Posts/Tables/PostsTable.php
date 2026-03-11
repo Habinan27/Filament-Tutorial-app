@@ -29,6 +29,7 @@ class PostsTable
                 TextColumn::make('slug')->sortable(),
                 TextColumn::make('category.name')->sortable(),
                 ColorColumn::make('color')->sortable(),
+                TextColumn::make('created_at')->dateTime()->sortable(),
             ])->defaultSort('title','asc')
             ->filters([
                 TrashedFilter::make(),

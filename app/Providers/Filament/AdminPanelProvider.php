@@ -24,8 +24,8 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->brandLogoHeight('32px')
-            ->brandName('Admin Panel')
+            // ->brandLogoHeight('32px')
+            // ->brandName('laravel-filament-tutorial')
             ->default()
             ->id('admin')
             ->path('admin')
