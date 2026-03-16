@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Posts\Tables;
 
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -11,8 +12,10 @@ use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Actions\ViewAction;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -63,6 +66,17 @@ class PostsTable
 
             ])
             ->recordActions([
+                Action::make('status')
+                    ->label('Status change')
+                    ->icon(Heroicon::AcademicCap)
+                    ->schema([
+                        Checkbox::make('published')
+                    ])
+                    ->action(function(array $data,$record){
+                        $record->published = $data['published'];
+                        $record->save();
+                    }),
+
                 EditAction::make(),
                 DeleteAction::make(),
                 ViewAction::make(),
