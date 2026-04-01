@@ -18,15 +18,30 @@ class CountryResource extends Resource
 {
     protected static ?string $model = Country::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::AdjustmentsHorizontal;
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    //globel searcing record attributes
-    // public static function getGloballySearchableAttributes(): array
-    // {
-    //     return ['name'];
-    // }
+    //make navigation group
+    protected static string|\UnitEnum|null $navigationGroup = 'Locations';
+
+    //custom navigation label
+    protected static ?string $navigationLabel = 'Manage Countries';
+
+    //create sort navigation order
+    protected static ?int $navigationSort = 3;
+
+    //add navigation badge with count of records
+    public static function getNavigationBadge(): ?string
+    {
+        return Country::count();
+    }
+
+    //change navigation badge color
+    public static function getNavigationBadgeColor(): string|array|null
+    {
+        return 'success';
+    }
 
     public static function form(Schema $schema): Schema
     {
