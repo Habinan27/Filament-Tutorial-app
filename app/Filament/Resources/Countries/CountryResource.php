@@ -22,6 +22,12 @@ class CountryResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    //globel searcing record attributes
+    // public static function getGloballySearchableAttributes(): array
+    // {
+    //     return ['name'];
+    // }
+
     public static function form(Schema $schema): Schema
     {
         return CountryForm::configure($schema);
