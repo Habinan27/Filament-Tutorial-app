@@ -24,8 +24,10 @@ class CategoryResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static ?string $navigationParentItem = 'Posts';
+
     //make navigation group
-    protected static string|\UnitEnum|null $navigationGroup = 'Blog';
+    protected static string|\UnitEnum|null $navigationGroup = 'Masters';
 
     public static function form(Schema $schema): Schema
     {
