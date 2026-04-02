@@ -13,6 +13,8 @@ class UserChartWidget extends ChartWidget
 
     protected string $color = 'info';
 
+    protected static ?int $sort = 2;
+
     protected function getData(): array
     {   
         $data = Trend::model(User::class)

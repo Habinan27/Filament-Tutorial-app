@@ -10,6 +10,8 @@ class UserPieChartWidget extends ChartWidget
 
     //protected ?string $maxHeight = '400px';
 
+    protected static ?int $sort = 3;
+
     protected function getData(): array
     {
         return [
