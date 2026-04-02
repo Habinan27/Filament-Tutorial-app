@@ -5,7 +5,7 @@ namespace App\Filament\Widgets;
 use Filament\Widgets\ChartWidget;
 
 class UserPieChartWidget extends ChartWidget
-{
+{   
     protected ?string $heading = 'User Pie Chart Widget';
 
     //protected ?string $maxHeight = '400px';
