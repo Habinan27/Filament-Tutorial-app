@@ -51,7 +51,9 @@ class PostForm
                             ->description('Manage the post meta information')
                             ->icon(Heroicon::Cog6Tooth)
                             ->schema([
-                                TagsInput::make('tags'),
+                                Select::make('tags')
+                                    ->relationship('tags','name')
+                                    ->multiple(),
                                 Checkbox::make('published'),
                                 DatePicker::make('published_at'),
                             ]),
